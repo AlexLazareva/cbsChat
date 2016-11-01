@@ -20,7 +20,8 @@
 .chat-footer
 	text-align: center
 	padding: 20px
-	box-shadow: 0 0px 20px -5px #000
+	box-shadow: 0 0 20px -5px #000
+	position: relative
 
 .chat-header__author
 	font-weight: 700
@@ -41,7 +42,7 @@
 	border-radius: 10px
 	padding: 10px
 	margin-bottom: 10px
-	border-right: 1px solid #eee
+	border: 1px solid #eee
 	width: 80%
 	float: left
 
@@ -51,9 +52,12 @@
 	background-color: $mainColor
 
 .chat-footer
+	padding: 30px 20px
 	textarea
 		width: 70%
 		padding: 10px
 		border: none
 		border-radius: 10px
+		box-shadow: 0 0 10px -5px #000
 		outline: none
+		resize: none
