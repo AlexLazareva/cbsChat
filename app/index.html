@@ -39,8 +39,8 @@
 	</div>
 
 		<div class="chat-footer">
-			<textarea name="" id="" cols="30" rows="5"></textarea>
-			<button class="btn btn-green">Send</button>
+			<textarea rows="5" ng-model="chat.newMessage"></textarea>
+			<button class="btn btn-green" ng-click="chat.sendMessage()">Send</button>
 		</div>
 	</div>
 </section>

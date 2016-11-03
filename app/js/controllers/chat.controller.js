@@ -1,10 +1,15 @@
 var cbsChat = angular.module('cbsChat', []);
 
-function chatCtrl() {
+function chatCtrl(ChatService) {
 	var vm = this;
 
-	vm.test = 'Some word';
+	vm.sendMessage = function(){
+		var message = {
+			text: vm.newMessage
+		}
+		ChatService.sendMessage(message);
+	}
 }
 
 angular.module('cbsChat')
-.controller('chatCtrl', [chatCtrl]);
+.controller('chatCtrl', ['ChatService', chatCtrl]);
