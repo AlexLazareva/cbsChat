@@ -9,6 +9,9 @@ function chatCtrl(ChatService, $firebaseAuth) {
 
 	vm.sendMessage = function(){
 		var message = {
+			authorName: vm.author.displayName,
+			authorId: vm.author.uid,
+			authorPhoto: vm.author.photoURL,
 			text: vm.newMessage
 		}
 		if (vm.newMessage != ''){
@@ -25,8 +28,8 @@ function chatCtrl(ChatService, $firebaseAuth) {
 	}
 
 	auth.$onAuthStateChanged(function(authData){
-		console.log(authData);
-	})
+		vm.author = authData;
+	});
 }
 
 angular.module('cbsChat')

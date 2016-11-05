@@ -18,7 +18,7 @@
 		<div class="chat-window">
 			<div class="chat-header">
 				<div class="chat-header__autor">
-					Alex Lazareva
+					{{chat.author.displayName}}
 				</div>
 				<div class="chat-header__btns">
 					<button class="btn btn-green" ng-click="chat.login()">Login</button>
@@ -30,7 +30,7 @@
 		<ul class="messages">
 			<li class="message message--mine" ng-repeat="m in chat.showMessages">
 				<!--<img src=""> -->
-				<span class="message__author">Alex Lazareva</span>
+				<span class="message__author">{{m.author.displayName}}</span>
 				<div class="message__text">
 					{{m.text}}
 				</div>
