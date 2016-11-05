@@ -21,25 +21,25 @@
 					Alex Lazareva
 				</div>
 				<div class="chat-header__btns">
-					<button class="btn btn-green">Login</button>
+					<button class="btn btn-green" ng-click="chat.login()">Login</button>
 				</div>
 			</div>
 			
 	
 	<div class="chat-body">
 		<ul class="messages">
-			<li class="message message--mine">
+			<li class="message message--mine" ng-repeat="m in chat.showMessages">
 				<!--<img src=""> -->
 				<span class="message__author">Alex Lazareva</span>
 				<div class="message__text">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					{{m.text}}
 				</div>
 			</li>
 		</ul>
 	</div>
 
 		<div class="chat-footer">
-			<textarea rows="5" ng-model="chat.newMessage"></textarea>
+			<textarea enter-sender="chat.sendMessage()" rows="5" ng-model="chat.newMessage"></textarea>
 			<button class="btn btn-green" ng-click="chat.sendMessage()">Send</button>
 		</div>
 	</div>
@@ -55,6 +55,7 @@
 	<script src="js/app.js"></script>
 	<script src="js/controllers/chat.controller.js"></script>
 	<script src="js/services/chat.service.js"></script>
+	<script src="js/directives/enter-sender-directive.js"></script>
 	<!-- endbuild -->
 </body>
 </html>
