@@ -1,0 +1,6 @@
+node_modules
+.idea/*
+.idea/cbsChat.iml
+.idea/inspectionProfiles/
+.idea/modules.xml
+.idea/workspace.xml

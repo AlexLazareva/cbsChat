@@ -8,12 +8,16 @@ function chatCtrl(ChatService, $firebaseAuth) {
 	vm.showMessages = ChatService.showMessages();
 
 	vm.sendMessage = function(){
-		var message = {
+		if (vm.author != null){
+			var message = {
 			authorName: vm.author.displayName,
 			authorId: vm.author.uid,
 			authorPhoto: vm.author.photoURL,
-			text: vm.newMessage
+			text: vm.newMessage}
+		}else{
+			alert('Сначала зарегистрируйтесь');
 		}
+
 		if (vm.newMessage != ''){
 			ChatService.sendMessage(message);
 			vm.newMessage = '';	
@@ -24,12 +28,16 @@ function chatCtrl(ChatService, $firebaseAuth) {
 	}
 
 	vm.login = function(){
-		auth.$signInWithPopup('google');
+		auth().$signInWithPopup('google');
 	}
 
-	auth.$onAuthStateChanged(function(authData){
-		vm.author = authData;
-	});
+	vm.logout = function(){
+        auth.$signOut();
+    };
+
+    auth.$onAuthStateChanged(function(authData) {
+        vm.author = authData;
+    });
 }
 
 angular.module('cbsChat')
